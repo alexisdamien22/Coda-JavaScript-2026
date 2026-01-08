@@ -7,7 +7,10 @@
     </head>
     <body>
         <script>
-            console.log("Hello World !");
+            const basePrice = Number(parseInt(prompt("Quel est le montant de votre addition ?"), 10));
+            const tipPercentage = Number(parseInt(prompt("Quel pourcentage voulez vous ajouer ?"), 10));
+            const finalPrice = basePrice + tipPercentage / 100 * basePrice;
+            alert("Vous devez "+finalPrice+" euros.");
         </script>
     </body>
 </html>
