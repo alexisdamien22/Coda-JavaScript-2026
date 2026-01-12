@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JavaScript Jour 3 - DOM</title>
+    </head>
+    <body>
+        <div id="container">
+            <header id="main-header" class="header">
+                <h1 class="title main-title">Bienvenue sur notre site</h1>
+                    <nav class="navigation">
+                        <ul class="menu">
+                            <li class="menu-item"><a href="#home">Accueil</a></li>
+                            <li class="menu-item"><a href="#services">Services</a></li>
+                            <li class="menu-item"><a href="#about">À propos</a></li>
+                            <li class="menu-item"><a href="#contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </header>
+            <main id="content" class="main-content">
+                <section class="hero">
+                    <h2 class="section-title">Section héro</h2>
+                    <p class="description">Découvrez nos services exceptionnels.</p>
+                    <button class="btn btn-primary">En savoir plus</button>
+                </section>
+                <section class="services">
+                    <h2 class="section-title">Nos services</h2>
+                    <div class="service-card" data-service="web">
+                        <h3>Développement Web</h3>
+                        <p class="description">Sites web modernes et responsive.</p>
+                    </div>
+                    <div class="service-card" data-service="mobile">
+                        <h3>Applications Mobile</h3>
+                        <p class="description">Applications iOS et Android.</p>
+                    </div>
+                    <div class="service-card" data-service="design">
+                        <h3>Design UI/UX</h3>
+                        <p class="description">Interfaces élégantes et intuitives.</p>
+                    </div>
+                </section>
+                <section class="testimonials">
+                    <h2 class="section-title">Témoignages</h2>
+                    <blockquote class="testimonial" data-author="Marie">
+                        <p>"Excellent travail, très professionnel !"</p>
+                    </blockquote>
+                    <blockquote class="testimonial" data-author="Pierre">
+                        <p>"Je recommande vivement leurs services."</p>
+                    </blockquote>
+                </section>
+            </main>
+            <footer id="main-footer" class="footer">
+                <p class="copyright">&copy; 2026 Coda</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">Facebook</a>
+                    <a href="#" class="social-link">Twitter</a>
+                    <a href="#" class="social-link">LinkedIn</a>
+                </div>
+            </footer>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

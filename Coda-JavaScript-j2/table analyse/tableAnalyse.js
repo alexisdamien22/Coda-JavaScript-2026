@@ -7,5 +7,11 @@ const sales = [
 { product: "Casque", quantity: 12, unitPrice: 45, category: "Audio" }
 ];
 
-sales = sales.map((sale)=>({sale, totalPrice: sale.unitPrice * sale.quantity}));
-console.log(sales);
+const totalSale = sales.map((sale)=>({sale, totalPrice: sale.unitPrice * sale.quantity}));
+console.log(totalPrices);
+
+const positives = sales.filter((sale) => sale.quantity > 0);
+console.log(positives);
+
+const total = totalSale.reduce((acc, sale)=>{return acc + sale.totalPrice}, 0);
+console.log(total);
