@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.btn1{
+    position: absolute;
+    top: 50%;
+    left: 24%;
+    height: 30px;
+    width: 70px;
+    background-color: #999999;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn2{
+    position: absolute;
+    top: 50%;
+    left: 74%;
+    height: 30px;
+    width: 70px;
+    background-color: #999999;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn:hover{
+    background-color: #777777;
+}
