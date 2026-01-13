@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: black;
 }
 
 .btn1{
@@ -20,7 +21,7 @@
 .btn2{
     position: absolute;
     top: 50%;
-    left: 74%;
+    left: 75%;
     height: 30px;
     width: 70px;
     background-color: #999999;
