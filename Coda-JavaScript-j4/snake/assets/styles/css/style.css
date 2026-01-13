@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+.apple{
+    height:30px;
+    aspect-ratio: 1/1;
+    background-color: red;
+}
+
+.body{
+    height:30px;
+    aspect-ratio: 1/1;
+    background-color: green;
+}
+
+.board{
+    height:30px;
+    aspect-ratio: 1/1;
+    background-color: white;
+}
