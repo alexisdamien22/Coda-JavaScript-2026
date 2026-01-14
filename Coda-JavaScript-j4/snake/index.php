@@ -7,7 +7,7 @@
         <title>Document</title>
     </head>
     <body>
-        <p class="apple"></p>
-        <script type="module" src="./js/snake.js"></script>
+        <div id="board"></div>
+        <script src="./js/snakes.js"></script>
     </body>
 </html>
