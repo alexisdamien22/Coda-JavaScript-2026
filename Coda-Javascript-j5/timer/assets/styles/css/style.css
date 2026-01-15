@@ -1,0 +1,94 @@
+body {
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#display {
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+  font-family: monospace;
+}
+
+.stopwatch-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.stopwatch {
+  width: 200px;
+  height: 200px;
+  background: white;
+  border: 10px solid red;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.face {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hand-giant {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: black;
+  top: 0px;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: rotate(0deg);
+}
+
+.hand-big {
+  position: absolute;
+  width: 2px;
+  height: 80px;
+  background: black;
+  top: 20px;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: rotate(0deg);
+}
+
+.hand-small {
+  position: absolute;
+  width: 2px;
+  height: 40px;
+  background: black;
+  top: 60px;
+  left: 50%;
+  transform-origin: bottom center;
+  transform: rotate(0deg);
+}
+
+.btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  background: black;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.btn:hover {
+    background-color: #333333;
+}
+
+.btn.left {
+  margin-right: 10px;
+}
+
+.btn.right {
+  margin-left: 10px;
+}
