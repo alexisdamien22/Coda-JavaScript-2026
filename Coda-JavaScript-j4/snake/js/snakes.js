@@ -59,21 +59,37 @@ function gameLoop(currentTime) {
 function spawnApple(body){
     pos = [getRandomInt(19), getRandomInt(19)];
     const bodyPos = body.find(
-        (piece) => piece[0] !== pos[0] && piece[1] !== pos[1]
+        (piece) => piece[0] === pos[0] && piece[1] === pos[1]
     );
-    if(bodyPos == undefined){
+    if(bodyPos !== undefined){
         spawnApple(body);
     }
 }
 
 function updateSnake() {
-    if(body[body.length - 1][0]+direction[0] === pos[0] && body[body.length - 1][1]+direction[1] === pos[1]){
-        body.push([body[body.length - 1][0]+direction[0],body[body.length - 1][1]+direction[1]]);
-        spawnApple(body);
-    }else{
-        body.push([body[body.length - 1][0]+direction[0],body[body.length - 1][1]+direction[1]]);
-        body.shift();
+    let head = body[body.length - 1];
+    let nextX = head[0] + direction[0];
+    let nextY = head[1] + direction[1];
+
+    if (nextX < 0 || nextX >= 20 || nextY < 0 || nextY >= 20) {
+        console.log("Perdu...");
+        return;
     }
+
+    if (body.some(part => part[0] === nextX && part[1] === nextY)) {
+        console.log("Perdu...");
+        return;
+    }
+
+    if (nextX === pos[0] && nextY === pos[1]) {
+        body.push([nextX, nextY]);
+        spawnApple(body);
+        return;
+    }
+
+    body.push([nextX, nextY]);
+    body.shift();
+
 }
 
 function draw() {
