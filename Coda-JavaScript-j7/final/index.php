@@ -7,6 +7,11 @@
         <title>Document</title>
     </head>
     <body>
-        <script src="./js/slitherio.js"></script>
+        <script src="./js/Adventurer.js"></script>
+        <script src="./js/Archer.js"></script>
+        <script src="./js/Mage.js"></script>
+        <script src="./js/Priest.js"></script>
+        <script src="./js/Thief.js"></script>
+        <script src="./js/Warrior.js"></script>
     </body>
 </html>

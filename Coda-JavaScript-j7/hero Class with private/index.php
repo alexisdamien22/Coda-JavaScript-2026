@@ -3,10 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="assets/styles/css/style.css?v=<?php echo filemtime('assets/styles/css/style.css'); ?>">
         <title>Document</title>
     </head>
     <body>
-        <script src="./js/slitherio.js"></script>
+        <script src="./js/Character.js"></script>
     </body>
 </html>

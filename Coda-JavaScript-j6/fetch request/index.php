@@ -7,6 +7,6 @@
         <title>Document</title>
     </head>
     <body>
-        <script src="./js/slitherio.js"></script>
+        <script src="./js/fetch.js"></script>
     </body>
 </html>

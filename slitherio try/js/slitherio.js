@@ -1,22 +1,41 @@
-const patternElement = document.getElementById("pattern");
+let x = 0;
+let y = 0;
+let len = 3.5;
+let targetLen = 3.5;
+let mouse = [window.innerWidth / 2, window.innerHeight / 2];
 
-const countY = Math.ceil(patternElement.clientHeight / 40) + 1;
-const countX = Math.ceil(patternElement.clientWidth / 48) + 1;
-const gap = 2;
-
-for (let i = 0; i < countY; i++) {
-  for (let j = 0; j < countX; j++) {
-    const hexagon = document.createElement("div");
-    hexagon.style = `
-      background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODciIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgODcgMTAwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNMi4xOTg3MyAyNi4xNTQ3TDQzLjUgMi4zMDk0TDg0LjgwMTMgMjYuMTU0N1Y3My44NDUzTDQzLjUgOTcuNjkwNkwyLjE5ODczIDczLjg0NTNWMjYuMTU0N1oiIGZpbGw9IiMxMzEyMTciIHN0cm9rZT0iIzEzMTIxNyIgc3Ryb2tlLXdpZHRoPSI0Ii8+Cjwvc3ZnPgo=') no-repeat;
-      width: 44px;
-      height: 50px;
-      background-size: contain;
-      position: absolute;
-      top: ${i * 40}px;
-      left: ${j * 48 + ((i * 24) % 48)}px;
-    `;
-
-    patternElement.appendChild(hexagon);
-  }
+function smooth(from, to, speed) {
+    return from + (to - from) * speed;
 }
+
+document.addEventListener("mousemove", (event) => {
+    mouse = [event.clientX, event.clientY];
+});
+
+document.addEventListener("mousedown", () => {
+    targetLen = 9;
+});
+document.addEventListener("mouseup", () => {
+    targetLen = 4;
+});
+
+function animateBackground() {
+    let center = [window.innerWidth / 2, window.innerHeight / 2];
+    let dx = mouse[0]-center[0];
+    let dy = mouse[1]-center[1];
+    let angleRad = Math.atan2(dy, dx);
+    let vx = Math.cos(angleRad) * len;
+    let vy = Math.sin(angleRad) * len;
+    x -= vx;
+    y -= vy;
+
+    len = smooth(len, targetLen, 0.1);
+
+    document.body.style.backgroundPosition = `${x}px ${y}px`;
+
+    requestAnimationFrame(animateBackground);
+}
+
+requestAnimationFrame(animateBackground);
+
+

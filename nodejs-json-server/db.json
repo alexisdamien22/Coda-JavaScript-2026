@@ -1,0 +1,68 @@
+{
+    "heroes": [
+        {
+            "id": 1,
+            "name": "Aragorn",
+            "class": "Guerrier",
+            "level": 15,
+            "hp": 120,
+            "attack": 45,
+            "defense": 30,
+            "gold": 850
+        },
+        {
+            "id": 2,
+            "name": "Gandalf",
+            "class": "Mage",
+            "level": 20,
+            "hp": 80,
+            "attack": 65,
+            "defense": 15,
+            "gold": 1200
+        },
+        {
+            "id": 3,
+            "name": "Legolas",
+            "class": "Archer",
+            "level": 12,
+            "hp": 90,
+            "attack": 50,
+            "defense": 20,
+            "gold": 600
+        }
+    ],
+    "quests": [
+        {
+            "id": 1,
+            "title": "Sauver le village",
+            "description": "Des gobelins attaquent le village voisin",
+            "reward": 500,
+            "difficulty": "Facile",
+            "completed": false
+        },
+        {
+            "id": 2,
+            "title": "Le trésor du dragon",
+            "description": "Récupérer le trésor gardé par un dragon",
+            "reward": 2000,
+            "difficulty": "Difficile",
+            "completed": false
+        }
+    ],
+    "inventory": [
+        {
+            "id": 1,
+            "heroId": 1,
+            "item": "Épée en acier",
+            "type": "Arme",
+            "bonus": 10
+        },
+        {
+            "id": 2,
+            "heroId": 2,
+            "item": "Bâton magique",
+            "type": "Arme",
+            "bonus": 15
+        }
+    ]
+}
