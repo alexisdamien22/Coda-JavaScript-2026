@@ -1,14 +1,8 @@
-import './style.css';
-import { Task } from './models/Task.js';
+import './styles/style.css';
+import { TaskController } from './controllers/TaskController.js';
 
-const tache1json = {
-  title: "Première tâche",
-};
+document.addEventListener("DOMContentLoaded", () => {
+	const app = new TaskController();
 
-const tache1 = Task.fromJSON(tache1json);
-console.log(tache1.completed);
-tache1.toggle();
-console.log(tache1.completed);
-console.log(tache1.toJSON())
-
-
+	console.log("Application initialisée");
+})

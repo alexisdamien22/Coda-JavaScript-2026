@@ -19,31 +19,41 @@ export class TaskManager extends EventEmitter {
     }
 
     remove(taskId) {
-        const taskToDelete = this.getById(taskId);
+        const taskIndex = this.#tasks.findIndex((task) => task.id === taskId);
 
-        if (taskToDelete) {
-            this.#tasks = this.#tasks.filter((task) => task.id !== taskId);
-            this.emit("task:removed", { tasks: this.getAll() });
+        if (taskIndex !== -1) {
+            const removedTask = this.#tasks[taskIndex];
+            this.#tasks.splice(taskIndex, 1);
+            this.emit("task:removed", { task: removedTask });
+            this.emit("tasks:changed", { tasks: this.getAll() });
+
+            return true;
         }
+
+        return false;
     }
 
-    Toggle(taskId) {
-        const taskToToggle = this.getById(taskId);
+    toggle(taskId) {
+        const taskIndex = this.#tasks.findIndex((task) => task.id === taskId);
 
-        if (taskToToggle) {
-            taskToToggle.toggle();
-            this.emit("task:toggled", { tasks: taskToToggle() });
-            this.emit("task:changed", { tasks: this.getAll() });
+        if (taskIndex !== -1) {
+            this.#tasks[taskIndex].toggle();
+            this.emit("task:toggled", { task: this.getById(taskId) });
+            this.emit("tasks:changed", { tasks: this.getAll() });
+
+            return true;
         }
+
+        return false;
     }
 
     update(taskId, newTitle) {
-        const taskToUpdate = this.getById(taskId);
+        const task = this.getById(taskId);
 
-        if (taskToUpdate) {
-            taskToUpdate.newTitle(newTitle);
-            this.emit("task:updated", { tasks: taskToUpdate() });
-            this.emit("task:changed", { tasks: this.getAll() });
+        if (task) {
+            task.updateTitle(newTitle);
+            this.emit("task:updated", { task });
+            this.emit("tasks:changed", { tasks: this.getAll() });
 
             return true;
         }
@@ -52,15 +62,17 @@ export class TaskManager extends EventEmitter {
     }
 
     loadFromJSON(jsonTasks) {
-        this.#tasks = jsonTasks.map((jsonTask) => Task.fromJSON(jsonTask));
-    }
-    
-    getAll() {
-        return this.#tasks.map((task) => task.toJSON())
+        this.#tasks = jsonTasks.map((jsonTask) => this.#tasks.fromJSON(jsonTask));
+        this.emit("task:loaded", { tasks: this.getAllToJSON() });
+        this.emit("task:changed", { tasks: this.getAllToJSON() });
     }
 
     getById(taskId) {
         return this.#tasks.findLast((task) => task.id === taskId);
+    }
+
+    getAll() {
+        return this.#tasks.map((task) => task.toJSON());
     }
 
     getStats() {
